@@ -37,3 +37,10 @@ build-backend = "poetry.core.masonry.api"
 [tool.ruff]
 line-length = 120
 lint.select = ["I00", "E", "F", "W"]
+
+[tool.commitizen]
+version = "0.1.0"
+tag_format = "$version"
+version_files = [
+    "pyproject.toml:version"
+]
