@@ -10,12 +10,13 @@ on:
       - 'README.md'
       - 'pre-commit-config.yaml'
 
-
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
 env:
+  docker_image_name: 'condense_api'
+  docker_registry: 'ghcr.io'
   python_version: 3.11.5
   poetry_version: 1.8.1
   poetry_home: "/opt/poetry"
@@ -147,3 +148,18 @@ jobs:
             exit 0
           fi
           exit $retCode
+
+  containerise:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Building image
+        shell: bash
+        env:
+          build_version: ${{ steps.package_version.outputs.BUILD_VERSION }}
+        run: |
+          docker build -f .ci/Dockerfile \
+            -t ${{ env.docker_image_name }} \
+            -t ${{ env.docker_registry }}/${{ github.repository }}/${{ env.docker_image_name }}:${{ env.build_version }} .
