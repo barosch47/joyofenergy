@@ -16,4 +16,3 @@ class ElectricReading(BaseModel):
 class PricePlanComparisons(BaseModel):
     pricePlanId: str
     pricePlanComparisons: List[dict]
-
