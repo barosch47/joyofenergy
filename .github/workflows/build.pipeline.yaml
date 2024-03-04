@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  docker_image_name: 'condense_api'
+  docker_image_name: 'joy_energy_api'
   docker_registry: 'ghcr.io'
   python_version: 3.11.5
   poetry_version: 1.8.1
@@ -42,7 +42,7 @@ jobs:
         shell: bash
         run: |
           export PATH="${{env.poetry_home}}/bin:$PATH"
-          poetry install --with test
+          poetry install --with tests
 
       - name: Run unit tests
         shell: bash
@@ -151,6 +151,10 @@ jobs:
 
   containerise:
     runs-on: ubuntu-latest
+    needs:
+      - testing
+      - linting_tools
+      - semantic_versioning
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
