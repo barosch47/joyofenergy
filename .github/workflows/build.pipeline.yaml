@@ -96,6 +96,8 @@ jobs:
 
   semantic_versioning:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.package_version.outputs.BUILD_VERSION }}
     needs:
       - testing
       - linting_tools
@@ -162,8 +164,8 @@ jobs:
       - name: Building image
         shell: bash
         env:
-          build_version: ${{ steps.package_version.outputs.BUILD_VERSION }}
+          VERSION: ${{ needs.semantic_versioning.outputs.version }}
         run: |
           docker build -f .ci/Dockerfile \
             -t ${{ env.docker_image_name }} \
-            -t ${{ env.docker_registry }}/${{ github.repository }}/${{ env.docker_image_name }}:${{ env.build_version }} .
+            -t ${{ env.docker_registry }}/${{ github.repository }}/${{ env.docker_image_name }}:${{ env.VERSION }} .
