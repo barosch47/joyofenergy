@@ -57,25 +57,27 @@ These values are used in the code and in the following examples too.
 
 ## Requirements
 
-The project requires [Python 3.7](https://www.python.org/downloads/release/python-370/) or higher and
-the [PIP](https://pip.pypa.io/en/stable/) package manager.
+The project requires [Python 3.11](https://www.python.org/downloads/release/python-370/) or higher and
+the [Poetry](https://python-poetry.org/) package manager.
 
 ## Useful Python commands
 
 ### Installation
 
-Install the project dependencies
+After installing poetry, install the project dependencies with:
 
 ```console
-$ python3.7 -m pip install --requirement requirements.txt
+$ poetry install --with ci, tests
 ```
+This will install main depenencies as well as dependencies from optional groups.
+For more information about see the [optional groups](https://python-poetry.org/docs/managing-dependencies#optional-groups) settings from poetry.
 
 ### Run the tests
 
 Run all tests
 
 ```console
-$ python3.7 -m unittest
+$ poetry run pytest
 ```
 
 ### Run the application
@@ -83,8 +85,22 @@ $ python3.7 -m unittest
 Run the application which will be listening on port `5000`.
 
 ```console
-$ python3.7 src/app.py
+$ poetry run python app.py
 ```
+### Pre-commit hooks
+The project is offering pre-commit hooks, please install them via
+```console
+pre-commit install
+```
+
+### Github acitons
+Each commit in the main branch will trigger a pipeline which will run unit tests, different linting tools and semantic versioning.
+When successful it will also containerize the prioject using the .ci/Dockerfile  
+
+### Semantic versioning
+We use conventional commits to automatically dedect version changes, for more information please see [ConventionalCommits](https://www.conventionalcommits.org/en/v1.0.0/)
+and [Commitizen](https://github.com/commitizen-tools/commitizen)
+
 
 ## API
 
