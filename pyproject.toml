@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "joyofenergy"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Baran Demir <social@bdemir.de>"]
 readme = "README.md"
@@ -39,7 +39,7 @@ line-length = 120
 lint.select = ["I00", "E", "F", "W"]
 
 [tool.commitizen]
-version = "0.1.1"
+version = "0.1.2"
 tag_format = "$version"
 version_files = [
     "pyproject.toml:version"
