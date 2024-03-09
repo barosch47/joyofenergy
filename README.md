@@ -67,17 +67,17 @@ the [Poetry](https://python-poetry.org/) package manager.
 After installing poetry, install the project dependencies with:
 
 ```console
-$ poetry install --with ci, tests
+poetry install --with ci, tests
 ```
 This will install main depenencies as well as dependencies from optional groups.
-For more information about see the [optional groups](https://python-poetry.org/docs/managing-dependencies#optional-groups) settings from poetry.
+For more information about see [optional groups](https://python-poetry.org/docs/managing-dependencies#optional-groups) settings.
 
 ### Run the tests
 
 Run all tests
 
 ```console
-$ poetry run pytest
+poetry run pytest
 ```
 
 ### Run the application
@@ -85,7 +85,7 @@ $ poetry run pytest
 Run the application which will be listening on port `5000`.
 
 ```console
-$ poetry run python app.py
+poetry run python app.py
 ```
 ### Pre-commit hooks
 The project is offering pre-commit hooks, please install them via
