@@ -158,7 +158,7 @@ readings.
 The following POST request, is an example request using CURL, sends the readings shown in the table above.
 
 ```console
-$ curl \
+curl \
   -X POST \
   -H "Content-Type: application/json" \
   "http://localhost:5000/readings/store" \
@@ -212,7 +212,7 @@ Parameters
 Retrieving readings using CURL
 
 ```console
-$ curl "http://localhost:5000/readings/read/smart-meter-0"
+curl "http://localhost:5000/readings/read/smart-meter-0"
 ```
 
 Example output
@@ -279,7 +279,7 @@ Parameters
 Retrieving readings using CURL
 
 ```console
-$ curl "http://localhost:5000/price-plans/compare-all/smart-meter-0"
+curl "http://localhost:5000/price-plans/compare-all/smart-meter-0"
 ```
 
 Example output
@@ -319,7 +319,7 @@ Parameters
 Retrieving readings using CURL
 
 ```console
-$ curl "http://localhost:5000/price-plans/recommend/smart-meter-0?limit=2"
+url "http://localhost:5000/price-plans/recommend/smart-meter-0?limit=2"
 ```
 
 Example output
