@@ -78,7 +78,7 @@ jobs:
         continue-on-error: true
         run: |
           export PATH="${{env.poetry_home}}/bin:$PATH"
-          poetry run ruff .
+          poetry run ruff check .
 
       - name: Run black
         shell: bash
