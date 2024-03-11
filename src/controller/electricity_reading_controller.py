@@ -28,7 +28,7 @@ def store(data: ElectricReading):
     response_model=List[Readings],
     description="Get Stored Readings",
 )
-def read(smart_meter_id: str = Path(example="smart-meter-0")):
+def read(smart_meter_id: str = Path(examples=["smart-meter-0"])):
     readings = service.retrieve_readings_for(smart_meter_id)
     if len(readings) < 1:
         return HTTPStatus.NOT_FOUND

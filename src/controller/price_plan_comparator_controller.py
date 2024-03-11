@@ -20,7 +20,7 @@ router = APIRouter(
     response_model=PricePlanComparisons,
     description="Compare prices for all plans for a given meter",
 )
-def compare(smart_meter_id: str = Path(example="smart-meter-0")):
+def compare(smart_meter_id: str = Path(examples=["smart-meter-0"])):
     price_plan_service = PricePlanService(readings_repository)
     account_service = AccountService()
     list_of_spend_against_price_plans = price_plan_service.get_list_of_spend_against_each_price_plan_for(smart_meter_id)
@@ -40,7 +40,7 @@ def compare(smart_meter_id: str = Path(example="smart-meter-0")):
     description="View recommended price plans for usage",
 )
 def recommend(
-    smart_meter_id: str = Path(example="smart-meter-0"),
+    smart_meter_id: str = Path(examples=["smart-meter-0"]),
     limit: int = Query(description="Number of items to return", default=None),
 ):
     price_plan_service = PricePlanService(readings_repository)
