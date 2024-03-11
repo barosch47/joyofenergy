@@ -67,7 +67,7 @@ the [Poetry](https://python-poetry.org/) package manager.
 After installing poetry, install the project dependencies with:
 
 ```console
-poetry install --with ci, tests
+poetry install --with ci,tests
 ```
 This will install main depenencies as well as dependencies from optional groups.
 For more information about see [optional groups](https://python-poetry.org/docs/managing-dependencies#optional-groups) settings.
