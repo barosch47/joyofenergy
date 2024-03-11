@@ -44,3 +44,7 @@ tag_format = "$version"
 version_files = [
     "pyproject.toml:version"
 ]
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
